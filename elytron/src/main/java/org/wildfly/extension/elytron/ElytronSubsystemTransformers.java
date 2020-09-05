@@ -118,6 +118,21 @@ public final class ElytronSubsystemTransformers implements ExtensionTransformerR
         ResourceTransformationDescriptionBuilder builder = chainedBuilder.createBuilder(ELYTRON_11_0_0, ELYTRON_10_0_0);
         builder.rejectChildResource(PathElement.pathElement(ElytronDescriptionConstants.DISTRIBUTED_REALM));
         builder.rejectChildResource(PathElement.pathElement(ElytronDescriptionConstants.FAILOVER_REALM));
+        builder.addChildResource(PathElement.pathElement(ElytronDescriptionConstants.FILE_AUDIT_LOG))
+                .getAttributeBuilder()
+                .addRejectCheck(RejectAttributeChecker.DEFINED, ElytronDescriptionConstants.ENCODING)
+                .setDiscard(DiscardAttributeChecker.UNDEFINED, AuditResourceDefinitions.ENCODING)
+                .end();
+        builder.addChildResource(PathElement.pathElement(ElytronDescriptionConstants.PERIODIC_ROTATING_FILE_AUDIT_LOG))
+                .getAttributeBuilder()
+                .addRejectCheck(RejectAttributeChecker.DEFINED, ElytronDescriptionConstants.ENCODING)
+                .setDiscard(DiscardAttributeChecker.UNDEFINED, AuditResourceDefinitions.ENCODING)
+                .end();
+        builder.addChildResource(PathElement.pathElement(ElytronDescriptionConstants.SIZE_ROTATING_FILE_AUDIT_LOG))
+                .getAttributeBuilder()
+                .addRejectCheck(RejectAttributeChecker.DEFINED, ElytronDescriptionConstants.ENCODING)
+                .setDiscard(DiscardAttributeChecker.UNDEFINED, AuditResourceDefinitions.ENCODING)
+                .end();
     }
 
     private static void from10(ChainedTransformationDescriptionBuilder chainedBuilder) {

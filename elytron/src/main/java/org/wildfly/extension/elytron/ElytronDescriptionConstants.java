@@ -182,6 +182,7 @@ interface ElytronDescriptionConstants {
     String ENABLE_CONNECTION_POOLING = "enable-connection-pooling";
     String ENABLING = "enabling";
     String ENCODED = "encoded";
+    String ENCODING = "encoding";
     String ENTRY_TYPE = "entry-type";
     String EVIDENCE_DECODER = "evidence-decoder";
     String EVIDENCE_DECODERS = "evidence-decoders";
